@@ -1,0 +1,17 @@
+@font-face {
+  font-family: FuenteTitulo;
+  src:url(/media/tipografia/PressStart2P-Regular.ttf) format('truetype');
+}
+
+@font-face {
+	font-family: FuenteGeneral;
+	src:url(/media/tipografia/Fredoka-VariableFont_wdth\,wght.ttf) format('truetype');
+}
+
+h1{
+    font-family: FuenteTitulo;
+}
+
+label, button{
+    font-family: FuenteGeneral;
+}
