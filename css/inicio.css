@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    background-image: url('../imagenes/fondos/Inicio.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+
+}
+
+.cabecera {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+    gap:1rem;
+
+
+}
+
+.cabecera button {
+    background-color: black;
+    color: white;
+    border-radius: 0.5rem;
+    min-width: 6rem;
+    min-height: 2rem;
+    border: none;/*quitar fondo gris*/
+
+}
+
+
+
+
+#principal {}
+
+
+
+.ranking,
+.usuario,
+.cerrar {}
