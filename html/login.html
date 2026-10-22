@@ -4,31 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Burguir-Reto/css/login.css">
     <title>Inicio De sesion</title>
 </head>
 
 <body>
-    <div id="logo">
-        <img src="/Burguir-Reto/media/logo-login.png" alt="Logo">
+    <div id="contenedor">
+        <div id="logo">
+            <img src="/Burguir-Reto/media/logo-login.png" alt="Logo">
+        </div>
+        <div id="formularioLogin">
+            <form>
+                <div class="campoLogin">
+                    <label for="txtUsuario">usuario: </label>
+                    <input type="text" id="txtUsuario">
+                </div>
+                <div class="campoLogin">
+                    <label for="pswContraseña">Contraseña: </label>
+                    <input type="password" id="pswContraseña">
+                </div>
+                <div id="boton">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+        <div id="divRegistrar">
+            <p>¿No tienes cuenta? <a href="">Registrate</a></p>
+        </div>
     </div>
-    <div id="formularioLogin">
-        <form>
-            <div class="campoLogin">
-                <label for="txtUsuario">usuario: </label>
-                <input type="text" id="txtUsuario">
-            </div>
-            <div class="campoLogin">
-                <label for="pswContraseña">Contraseña: </label>
-                <input type="password" id="pswContraseña">
-            </div>
-            <div id="boton">
-                <input type="submit" value="Login">
-            </div>
-        </form>
-    </div>
-    <div id="divRegistrar">
-        <p>¿No tienes cuenta? <a href="">Registrate</a></p>
-    </div>
+
 </body>
 
 </html>
