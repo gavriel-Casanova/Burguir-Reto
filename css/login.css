@@ -1,0 +1,54 @@
+#contenedor {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+body {
+  display: grid;
+  place-items: center; 
+  height: 100vh;
+  
+}
+
+#logo {
+  display: block;
+  width: auto;
+  height: auto;
+  margin-top: 2em;
+}
+
+#formularioLogin {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 2em;
+}
+
+#divRegistrar {
+  display: flex;
+  width: auto;
+  height: auto;
+}
+
+#boton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+#boton input {
+  margin: auto;
+}
+
+.campoLogin{
+    display: flex;
+    justify-content: right;
+    margin: .5em;
+    
+}
+
+.campoLogin input{
+    margin-left: .3em;
+}
