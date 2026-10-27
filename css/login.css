@@ -2,13 +2,21 @@
   display: flex;
   flex-direction: column;
   margin: auto;
+  padding: 1em;
+  border: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  background-color: rgba(219, 223, 226, 0.418);
 }
 
 body {
   display: grid;
-  place-items: center; 
+  place-items: center;
   height: 100vh;
-  
+  background-image: url(../media/img/fondos/fondo\ login.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #logo {
@@ -23,12 +31,21 @@ body {
   width: auto;
   height: auto;
   margin: 2em;
+  padding: 1em;
+  border: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  
 }
 
 #divRegistrar {
   display: flex;
   width: auto;
   height: auto;
+  padding: 1em;
+  border-radius: 3px;
+  border-style: solid;
+  border: 1px;
 }
 
 #boton {
@@ -42,13 +59,12 @@ body {
   margin: auto;
 }
 
-.campoLogin{
-    display: flex;
-    justify-content: right;
-    margin: .5em;
-    
+.campoLogin {
+  display: flex;
+  justify-content: right;
+  margin: 0.5em;
 }
 
-.campoLogin input{
-    margin-left: .3em;
+.campoLogin input {
+  margin-left: 0.3em;
 }
