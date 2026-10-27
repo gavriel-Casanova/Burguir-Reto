@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link href="/css/perfil.css" rel="stylesheet">
-    <link href="/css/general.css" rel="stylesheet">
+    <link href="../css/perfil.css" rel="stylesheet">
+    <link href="../css/general.css" rel="stylesheet">
 </head>
 <body>
     <div id="contenedor">
@@ -18,27 +18,31 @@
 
         <div id="formulario">
             <form>
-                <label for="nombre">Nombre:</label><br>
-                <input type="text" name="nombre" id="nomb"><br><br>
+                <div id="campos-form">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nomb">
 
-                <label for="usuario">Usuario:</label><br>
-                <input type="text" name="usuario" id="user"><br><br>
+                    <label for="usuario">Usuario:</label>
+                    <input type="text" name="usuario" id="user">
 
-                <label for="contraseña">Contraseña:</label><br>
-                <input type="password" name="contraseña" id="passwd"><br><br>
+                    <label for="contraseña">Contraseña:</label>
+                    <input type="password" name="contraseña" id="passwd">
 
-                <label for="confirmar">Confirmar contraseña:</label><br>
-                <input type="password" name="confcontraseña" id="confpasswd"><br><br>
+                    <label for="confirmar">Confirmar contraseña:</label>
+                    <input type="password" name="confcontraseña" id="confpasswd">
 
-                <label for="fecha">Fecha de nacimiento:</label><br>
-                <input type="date" name="fecha" id="fecha"><br><br>
+                    <label for="fecha">Fecha de nacimiento:</label>
+                    <input type="date" name="fecha" id="fecha">
 
-                <label for="correo">Correo:</label><br>
-                <input type="email" name="correo" id="correo"><br><br>    
+                    <label for="correo">Correo:</label>
+                    <input type="email" name="correo" id="correo">
+                </div>
                 
-                <button type="button" id="registrarse">Registrarse</button>
-                <button type="button" id="usuario">Nuevo usuario</button>
-                <button type="button" id="actualizar">Actualizar</button>
+                <div id="btnform">
+                    <button type="button" id="registrarse">Registrarse</button>
+                    <button type="button" id="usuario">Nuevo usuario</button>
+                    <button type="button" id="actualizar">Actualizar</button>
+                </div>
             </form>
         </div>
     </div>
