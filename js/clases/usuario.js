@@ -56,4 +56,12 @@ export class Usuario{
 	setPersonaje(personaje){
 		this.personaje = personaje;
 	}
+
+    
 }
+
+ export const usuario = {
+    usuario: ""
+};
+
+export default usuario;

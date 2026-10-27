@@ -12,10 +12,10 @@
 <body>
     <div id="contenedor">
         <div id="logo">
-            <img src="/Burguir-Reto/media/logo-login.png" alt="Logo">
+           <!-- <img src="/Burguir-Reto/media/logo-login.png" alt="Logo">-->
         </div>
         <div id="formularioLogin">
-            <form>
+            <form id="formulario">
                 <div class="campoLogin">
                     <label for="txtUsuario">usuario: </label>
                     <input type="text" id="txtUsuario" required>
@@ -25,7 +25,7 @@
                     <input type="password" id="pswContraseña" required>
                 </div>
                 <div id="boton">
-                    <input id="btnLogin" type="submit" value="Login">
+                    <input id="btnLogin" type="submit">
                 </div>
             </form>
         </div>
@@ -33,7 +33,7 @@
             <p>¿No tienes cuenta? <a href="">Registrate</a></p>
         </div>
     </div>
-
+    <script type="module" src="../js/login.js"></script>
 </body>
 
 </html>
