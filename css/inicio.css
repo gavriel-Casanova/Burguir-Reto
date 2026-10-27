@@ -22,7 +22,8 @@ body {
 
 
 #ranking,
-#usuario {
+#usuario,
+#cerrar_sesion {
     background-color: black;
     color: white;
     border-radius: 0.5rem;
@@ -58,6 +59,7 @@ body {
 
 #cerrar_sesion {
     display: none;
+    
 }
 
 
