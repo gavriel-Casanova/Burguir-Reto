@@ -34,10 +34,11 @@ body {
 
 }
 
-.contenedor_usuario {
+#contenedor_usuario {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
 }
 
 #imagen_personaje {

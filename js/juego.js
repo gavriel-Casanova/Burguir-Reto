@@ -2,9 +2,15 @@ import { Plato } from "./clases/plato.js";
 import { Comanda } from "./clases/comanda.js";
 
 const comidas = ["agua", "ensalada", "hamburguesa", "helado", "patatas", "tarta", "nachos", "refresco"];
-
+var totalComandas= 0;
 
 function crearComanda() {
+
+    if(totalComandas >= 6){
+        /*detener el tiempo + volver a inicio*/
+        return;
+    }
+
     var totalPlatos = generarNumeroAleatorio(5);
     var comanda = new Comanda();
 
@@ -12,7 +18,8 @@ function crearComanda() {
         var plato = crearPlato();
         añadirPlatoAComanda(comanda, plato);
     }
-    añadirComandaEnLaPagina(comanda);
+    añadirComandaEnLaPagina(comanda); 
+    totalComandas++;
 }
 
 

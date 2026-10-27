@@ -16,7 +16,7 @@ function inicializarPantallaInicio(){
     });
 
     document.getElementById("cerrar_sesion").addEventListener("click", function() {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     });
 
     document.getElementById("iniciar").addEventListener("click", function() {
@@ -35,7 +35,7 @@ function inicializarPantallaInicio(){
 
 function mostrarBotonCerrarSesion() {
 
-    var cajaPersonaje = document.getElementById("imagen_personaje");
+    var cajaPersonaje = document.getElementById("contenedor_usuario");
     var botonCerrarSesion = document.getElementById("cerrar_sesion");
 
     cajaPersonaje.addEventListener("mouseenter", function() {
