@@ -13,7 +13,7 @@ body {
   display: grid;
   place-items: center;
   height: 100vh;
-  background-image: url(../media/img/fondos/fondo\ login.png);
+  background-image: url(../media/img/fondos/fondo_login.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
