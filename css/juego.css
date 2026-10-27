@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    background-image: url('../media/img/fondos/fondo_juego.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+
+}
+
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /*ocupe toda la altura de la pantalla*/
+}
+
+.cronometro{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 1rem;
+
+
+    /* background-color: yellow; */
+}
+
+#tiempo {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: #222;
+    border: 0.3rem solid #ca1818;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    /* max-width: 100%; */
+    white-space: nowrap; /*evita que el contenido se separe en lineas diferentes*/
+}
+#imagen_reloj {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content; /*se ajusta al contenido*/
+  
+
+    /* background-color: cyan; */
+}
+
+#reloj {
+    width: 4rem;
+    object-fit: contain;
+}
+
+.contenedor_principal {
+    width: 95%;
+    flex: 1;
+    min-height: 0;
+    margin: 0 auto 2.5vh; /*centro horizontalmente y margen inferior*/
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.contenedor_1 {
+    flex: 1;
+    min-width: 0;
+ 
+
+    /* background-color: blue; */
+}
+
+.contenedor_2 {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box; /*incluye el padding y el border en el ancho y alto indicado*/
+
+    /* background-color: red; */
+}
+
+
+
+#imagen_comanda {
+    /* background-color: black; */
+    width: 100%; /*ocupa todo el ancho del padre*/
+    height: 100%; /*todo lo posible del padre*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /*referencia para colocar la lista*/
+   
+}
+
+#comanda {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /*mantiene proporcion de la imagen-no deformar*/
+}
+
+#lista_comanda{
+    position: absolute; /* Se coloca por encima de la imagen */
+    width: 50%;
+    height: 60%;
+    /* top: 25%; */
+    /* left: 22%; */
+    /* z-index: 1; delante de la imagen */
+
+    background-color: aquamarine;
+}
+
+#lista_comanda p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: black;
+}
+
+#botonera {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+    width: 85%;
+    height: 85%;
+    box-sizing: border-box;
+  
+/* 
+    background-color: green; */
+}
+
+#botonera img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    min-width: 0;
+    min-height: 0;
+}
