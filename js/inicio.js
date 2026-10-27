@@ -3,7 +3,7 @@ import {Usuario} from "./clases/usuario.js";
 
 var usuario = new Usuario();/*PRUEBA*/
 
-usuario.setPersonaje("/media/img/personajes/personaje6.png");
+usuario.setPersonaje("/media/img/personajes/personaje4.png");   
 usuario.setUsuario("Usuario de prueba");
 inicializarPantallaInicio();
 
