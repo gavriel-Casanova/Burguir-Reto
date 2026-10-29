@@ -1,7 +1,7 @@
 export class Plato{
     
    constructor(){
-        this.cantidad = "";
+        this.cantidad = 0;
         this.comida = "";
     }
 	
@@ -19,6 +19,11 @@ export class Plato{
 
 	setComida(comida){
 		this.comida = comida;
+	}
+
+	restarCantidad(){
+		this.cantidad--;
+
 	}
 
 }
