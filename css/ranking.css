@@ -33,3 +33,33 @@ body {
    padding: 1em; 
    margin-top: 1em;
 }
+
+#botonesInferiores{
+    display: flex;
+    margin-top: 1em;
+    justify-content: space-between;
+}
+
+button{
+    padding: 6px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    display:inline-flex;
+    align-items:center;
+    justify-content: center;
+    background-color:black;
+    color:white;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.fila img{
+    width: 30%;
+    height: auto;
+
+}
+
+.Avatar{
+    width: 30%;
+    height:auto; 
+}

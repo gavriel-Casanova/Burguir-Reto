@@ -6,7 +6,7 @@ export class Usuario{
         this.contraseña = contraseña;
         this.fechaNacimiento =fecNacimiento;
         this.correo = correo;
-        this.personaje= correo;
+        this.personaje= avatar;
     }
 	
 	getNombre(){
