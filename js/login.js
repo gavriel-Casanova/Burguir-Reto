@@ -1,5 +1,7 @@
 import { Usuario }  from './clases/Usuario.js'
 const formulario = document.getElementById("formulario");
+
+// elementos de prueba 
 let test = new Usuario("test","test","test","test","","");
 let test2 = new Usuario("test2","test2","test2","test2","","");
 let arrTest = new Array();
@@ -7,6 +9,7 @@ arrTest.push(test);
 arrTest.push(test2);
 localStorage.setItem('usuarios',JSON.stringify(arrTest));
 console.log(arrTest);
+// fin elementos de prueba
 
 formulario.addEventListener("submit", function(event) {
     event.preventDefault(); 
