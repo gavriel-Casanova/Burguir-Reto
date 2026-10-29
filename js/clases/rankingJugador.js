@@ -1,4 +1,4 @@
-import { Usuario }  from './clases/Usuario.js';
+import { Usuario }  from './Usuario.js';
 export class RankingJugador {
     constructor (usuario, puntos, fecha){
         this.usuario = usuario;
