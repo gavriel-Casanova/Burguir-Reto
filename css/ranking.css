@@ -1,0 +1,35 @@
+#contenedor {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 1em;
+  border: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  background-color: rgba(219, 223, 226, 0.418);
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background-image: url(../media/img/fondos/fondo_login.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#titulo {
+    display: grid;
+   place-items: center;
+   border: 1px;
+   border-style: solid;
+   padding: 1em; 
+}
+
+#listaRanking {
+   border: 1px;
+   border-style: solid;
+   padding: 1em; 
+   margin-top: 1em;
+}

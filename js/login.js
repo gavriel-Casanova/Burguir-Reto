@@ -1,23 +1,27 @@
-import { usuario } from './clases/usuario.js'
+import { Usuario }  from './clases/Usuario.js'
 const formulario = document.getElementById("formulario");
-let test = new usuario();
-test.setUsuario("test");
-test.setContraseña("test");
+
+// elementos de prueba 
+let test = new Usuario("test","test","test","test","","");
+let test2 = new Usuario("test2","test2","test2","test2","","");
 let arrTest = new Array();
-aarTest.push(test);
-sessionStorage.setItem('usuario', arrTest);
+arrTest.push(test);
+arrTest.push(test2);
+localStorage.setItem('usuarios',JSON.stringify(arrTest));
+console.log(arrTest);
+// fin elementos de prueba
 
 formulario.addEventListener("submit", function(event) {
     event.preventDefault(); 
     var usuarios = localStorage.getItem('usuarios');
-    
+    usuarios = JSON.parse(usuarios).map(item => Object.assign(new Usuario(), item));
     let txtUsuario = document.getElementById("txtUsuario").value;
     let pass = document.getElementById("pswContraseña").value;
-
-    var usuarioEncontrado = usuarios.find(Usuario => usuario.user === txtUsuario);
-    if((usuarioEncontrado.getUsuario == txtUsuario) && (usuarioEncontrado.getContraseña === pass)){
+    var usuarioEncontrado = usuarios.find(usuario => usuario.usuario === txtUsuario);
+    if((usuarioEncontrado.contraseña === pass)){
         sessionStorage.setItem('usuario', usuarioEncontrado);
+        window.location.href = "../html/inicio.html";
     } else {
-        console.log("Error");
+        console.log("uss o pass incorrecto");
     }
 });

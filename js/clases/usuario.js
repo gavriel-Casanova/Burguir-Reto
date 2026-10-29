@@ -1,12 +1,12 @@
 export class Usuario{
     
-   constructor(){
-        this.nombre = "";
-        this.usuario = "";
-        this.contraseña = "";
-        this.fechaNacimiento = "";
-        this.correo = "";
-        this.personaje= "";
+   constructor(nombre, usuario, contraseña, fecNacimiento, correo, avatar){
+        this.nombre =nombre;
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        this.fechaNacimiento =fecNacimiento;
+        this.correo = correo;
+        this.personaje= correo;
     }
 	
 	getNombre(){
@@ -60,8 +60,3 @@ export class Usuario{
     
 }
 
- export const usuario = {
-    usuario: ""
-};
-
-export default usuario;
