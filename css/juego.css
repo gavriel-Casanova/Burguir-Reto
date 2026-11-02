@@ -84,7 +84,6 @@ body {
 
 
 #imagen_comanda {
-    /* background-color: black; */
     width: 100%; /*ocupa todo el ancho del padre*/
     height: 100%; /*todo lo posible del padre*/
     display: flex;
@@ -93,8 +92,7 @@ body {
     /* position: relative; referencia para colocar la lista */
 
     
-    /* background-color: antiquewhite;
-    */
+    /* background-color: antiquewhite; */
 }
 
 #comanda {
@@ -102,12 +100,13 @@ body {
     max-height: 100%;
     object-fit: contain; /*mantiene proporcion de la imagen/no deformar*/
     position: relative;
+    
 }
 
 #lista_comanda{
     position: absolute; /* Se coloca por encima del contenedor de la imagen*/
-    width: 15%;
-    height: 50%;
+    width: 20%;
+    height: 60%;
     
 
     /* z-index: 1; delante de la imagen */
@@ -116,8 +115,8 @@ body {
 }
 
 #lista_comanda p {
-    margin: 2.3rem 0.5rem;
-    font-size: 1.5rem;
+    margin: 2.3rem 0rem;
+    font-size: 2rem;
     color: black;
 }
 
