@@ -1,5 +1,7 @@
+import { Usuario } from "./clases/usuario.js";
 import { Plato } from "./clases/plato.js";
 import { Comanda } from "./clases/comanda.js";
+import { RankingJugador } from "./clases/rankingJugador.js";
 
 const comidas = ["agua", "ensalada", "hamburguesa", "helado", "patatas", "tarta", "nachos", "refresco"];
 var comandaActual;
@@ -143,6 +145,11 @@ function comprobarComandaCompletada() {
         contadorComanda++;
 
         if (contadorComanda >= 6) {
+            var usuario = new Usuario("pepe", "prueba","Quefuncione","02/11/2000", "pepe@gmail.com","null");
+            var puntos = 100;
+            guardarRanking(usuario, puntos);//FALTA OBTENER PUNTUACIÓN
+            console.log(JSON.parse(localStorage.getItem("ranking")));
+
             window.location.href = "inicio.html";
             return;
         }
@@ -157,5 +164,20 @@ function tacharPlato(parrafo){
 }
 
 
+function guardarRanking(usuario, puntos){
+    //creamos el obj
+    var rankigJugador = new RankingJugador(usuario, puntos, new Date());
+
+
+    //Buscamos si existe un ranking guardado; convertimos el texto guardado en a un array usando JSON.parse.
+    //Sino existe creamos array vacio
+    var ranking = JSON.parse(localStorage.getItem("ranking")) || []; 
+    //Añadimos el nuevo jugador al array
+    ranking.push(rankigJugador);
+    //Guardamos el array actualizado convirtiendo el array a texto al usar JSON.stringify
+    localStorage.setItem("ranking", JSON.stringify(ranking));
+
+
+}
 
 iniciarJuego();
