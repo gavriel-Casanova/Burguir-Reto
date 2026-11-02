@@ -3,14 +3,14 @@ import { Comanda } from "./clases/comanda.js";
 
 const comidas = ["agua", "ensalada", "hamburguesa", "helado", "patatas", "tarta", "nachos", "refresco"];
 var comandaActual;
-var totalComandas = 0;
+var contadorComanda = 0;
+
+function iniciarJuego() {
+    crearComanda();
+    recogerClicksSobreBotonera();
+}
 
 function crearComanda() {
-
-    if (totalComandas >= 6) {
-        /*detener el tiempo + volver a inicio*/
-        return;
-    }
 
     var totalPlatos = generarNumeroAleatorio(5);
     comandaActual = new Comanda();
@@ -22,16 +22,16 @@ function crearComanda() {
     //Limpiar la comanda anterior
     document.getElementById("lista_comanda").innerHTML = "";
     añadirComandaEnLaPagina(comandaActual);
-    totalComandas++;
 }
 
-
+//Devuelve un número aleatorio entre 1 y el parámetro recibido (max)
+//El +1 es para que el número máximo sea incluido en el rango y no devuelva 0 yaque Math.floor redondea por lo bajo
 function generarNumeroAleatorio(max) {
     return Math.floor(Math.random() * max) + 1;
 }
 
 
-
+//Creamos un plato con cantidad aleatoria (máximo 3) y comida aleatoria (alguno de los elementos del array comidas)
 function crearPlato() {
     var plato = new Plato();
     plato.setCantidad(generarNumeroAleatorio(3));
@@ -42,24 +42,25 @@ function crearPlato() {
 
 }
 
-
+//Añadimos un plato a la comandaActual si no existe ya un plato con el mismo nombre
 function añadirPlatoAComanda(comandaActual, plato) {
 
     var existe = false;
-
+    //recorremos la comandaActual y comprobamos si ya existe un plato con el mismo nombre que el obj. plato  recibido como parámetro
     for (let i = 0; i < comandaActual.platos.length; i++) {
 
         if (comandaActual.platos[i].getComida() == plato.getComida()) {
             existe = true;
         }
     }
-
+    //añadimos el palto a la comandaActual(al final del array)
     if (existe == false) {
         comandaActual.platos.push(plato);
-        console.log("Plato añadido " + plato.getCantidad() + " " + plato.getComida());
+        //console.log("Plato añadido " + plato.getCantidad() + " " + plato.getComida());
     }
 }
 
+//Añadimos la comandaActual en el html, creando un parrafo por cada plato con su cantidad y nombre
 function añadirComandaEnLaPagina(comandaActual) {
 
     var lista = document.getElementById("lista_comanda");
@@ -68,25 +69,22 @@ function añadirComandaEnLaPagina(comandaActual) {
 
         var parrafo = document.createElement("p");
         parrafo.id = "plato" + (i + 1);
-
+        //añadimos el texto al parrafo con la cantidad y el nombre del plato
         parrafo.textContent = comandaActual.platos[i].getCantidad() + " " + comandaActual.platos[i].getComida();
         lista.appendChild(parrafo);
 
     }
 }
 
+//************************** CAMBIOS TRAS CLICK ******************************************/
 
-
-
-
-
-//en una misma función pongo eventos de click sobre todas las imagenes de la botonera
+//En una misma función ponemos eventos de click sobre todas las imagenes de la botonera
 // ya que la imagen se corresponde con cada uno de los elementos del array comidas
 function recogerClicksSobreBotonera() {
     for (let i = 0; i < comidas.length; i++) {
         let comida = comidas[i]; //EXPLICAR ESTO 
         document.getElementById(comida).addEventListener("click", function () {
-            console.log(comida);
+            // console.log(comida);
             recogerClickComida(comida);
         });
 
@@ -119,14 +117,37 @@ function buscarPlatoEnComanda(comida) {
 function restarCantidadPlato(posicionPlatoEncontrado) {
     var platoEncontrado = comandaActual.platos[posicionPlatoEncontrado];
     if (platoEncontrado.getCantidad() > 0) {
-        console.log(platoEncontrado.getCantidad());
+        // console.log(platoEncontrado.getCantidad());
         platoEncontrado.restarCantidad();
-        console.log(platoEncontrado.getCantidad());
+        // console.log(platoEncontrado.getCantidad());
         var parrafo = document.getElementById("plato" + (posicionPlatoEncontrado + 1));//buscamos el id de ese parrafo para modificarlo
         parrafo.textContent = platoEncontrado.getCantidad() + " " + platoEncontrado.getComida();
         if(platoEncontrado.getCantidad() == 0){
             tacharPlato(parrafo);
         }
+        comprobarComandaCompletada();
+    }
+}
+
+function comprobarComandaCompletada() {
+    var todosLosPlatosCompletados = true;
+
+    for (let i = 0; i < comandaActual.platos.length; i++) {
+        if (comandaActual.platos[i].getCantidad() > 0) {
+            todosLosPlatosCompletados = false;
+            break;
+        }
+    }
+
+    if (todosLosPlatosCompletados) {
+        contadorComanda++;
+
+        if (contadorComanda >= 6) {
+            window.location.href = "inicio.html";
+            return;
+        }
+
+        crearComanda();
     }
 }
 
@@ -137,8 +158,4 @@ function tacharPlato(parrafo){
 
 
 
-crearComanda();
-recogerClicksSobreBotonera();
-
-
-
+iniciarJuego();
