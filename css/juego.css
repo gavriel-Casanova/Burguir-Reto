@@ -66,7 +66,7 @@ body {
     min-width: 0;
  
 
-    /* background-color: blue; */
+    /* background-color: blue;  */
 }
 
 .contenedor_2 {
@@ -84,36 +84,39 @@ body {
 
 
 #imagen_comanda {
-    /* background-color: black; */
     width: 100%; /*ocupa todo el ancho del padre*/
     height: 100%; /*todo lo posible del padre*/
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /*referencia para colocar la lista*/
-   
+    /* position: relative; referencia para colocar la lista */
+
+    
+    /* background-color: antiquewhite; */
 }
 
 #comanda {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /*mantiene proporcion de la imagen-no deformar*/
+    object-fit: contain; /*mantiene proporcion de la imagen/no deformar*/
+    position: relative;
+    
 }
 
 #lista_comanda{
-    position: absolute; /* Se coloca por encima de la imagen */
-    width: 50%;
+    position: absolute; /* Se coloca por encima del contenedor de la imagen*/
+    width: 20%;
     height: 60%;
-    /* top: 25%; */
-    /* left: 22%; */
+    
+
     /* z-index: 1; delante de la imagen */
 
-    background-color: aquamarine;
+    /* background-color: aquamarine;  */
 }
 
 #lista_comanda p {
-    margin: 5px 0;
-    font-size: 1rem;
+    margin: 2.3rem 0rem;
+    font-size: 2rem;
     color: black;
 }
 
@@ -125,6 +128,8 @@ body {
     width: 85%;
     height: 85%;
     box-sizing: border-box;
+    /* background-color:  #000000; */
+    border-radius: 1rem;
   
 /* 
     background-color: green; */
@@ -136,4 +141,5 @@ body {
     object-fit: contain;
     min-width: 0;
     min-height: 0;
+    background-color:  #ffffff8a; ;
 }

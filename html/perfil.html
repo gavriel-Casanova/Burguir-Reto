@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link href="../css/perfil.css" rel="stylesheet">
-    <link href="../css/general.css" rel="stylesheet">
+    <link href="/Burguir-Reto/css/general.css" rel="stylesheet">
+    <link href="/Burguir-Reto/css/perfil.css" rel="stylesheet">
+    <link href="/Burguir-Reto/css/personaje.css" rel="stylesheet">
 </head>
 <body>
     <div id="contenedor">
@@ -16,8 +17,8 @@
             <button type="button" id="personaje">Personaje</button> 
         </div>
 
-        <div id="formulario">
-            <form>
+        <div id="formulario-perfil">
+            <form id="formulario">
                 <div id="campos-form">
                     <label for="nombre">Nombre:</label>
                     <input type="text" name="nombre" id="nomb">
@@ -39,12 +40,36 @@
                 </div>
                 
                 <div id="btnform">
-                    <button type="button" id="registrarse">Registrarse</button>
+                    <input type="submit" id="registrarse" value="Registrarse"></input>
                     <button type="button" id="usuario">Nuevo usuario</button>
                     <button type="button" id="actualizar">Actualizar</button>
                 </div>
             </form>
         </div>
     </div>
+
+    <div id="popup-personajes" class="modal-overlay">
+        <div class="modal-content">
+            <h1>BURGUIR</h1>
+
+            <div id="imagenes">
+                <img id="1" src="/Burguir-Reto/media/img/personajes/personaje1.png" alt="Personaje 1">
+                <img id="2" src="/Burguir-Reto/media/img/personajes/personaje2.png" alt="Personaje 2">
+                <img id="3" src="/Burguir-Reto/media/img/personajes/personaje3.png" alt="Personaje 3">
+                <img id="4" src="/Burguir-Reto/media/img/personajes/personaje4.png" alt="Personaje 4">
+                <img id="5" src="/Burguir-Reto/media/img/personajes/personaje5.png" alt="Personaje 5">
+                <img id="6" src="/Burguir-Reto/media/img/personajes/personaje6.png" alt="Personaje 6"><br>  
+            </div>
+            
+            <div id="botones">
+                <button type="button" id="aceptar">Aceptar</button>
+                <button type="button" id="cancelar">Cancelar</button> 
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/clases/perfil.js"></script>
+    <script src="../js/clases/personaje.js"></script>
+
 </body>
 </html>

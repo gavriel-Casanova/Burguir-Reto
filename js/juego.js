@@ -1,32 +1,39 @@
+import { Usuario } from "./clases/usuario.js";
 import { Plato } from "./clases/plato.js";
 import { Comanda } from "./clases/comanda.js";
+import { RankingJugador } from "./clases/rankingJugador.js";
 
-const comidas = [
-  "agua",
-  "ensalada",
-  "hamburguesa",
-  "helado",
-  "patatas",
-  "tarta",
-  "nachos",
-  "refresco",
-];
+const comidas = ["agua", "ensalada", "hamburguesa", "helado", "patatas", "tarta", "nachos", "refresco"];
+var comandaActual;
+var contadorComanda = 0;
 
-function crearComanda() {
-  var totalPlatos = generarNumeroAleatorio(5);
-  var comanda = new Comanda();
-
-  for (let i = 0; i < totalPlatos; i++) {
-    var plato = crearPlato();
-    añadirPlatoAComanda(comanda, plato);
-  }
-  añadirComandaEnLaPagina(comanda);
+function iniciarJuego() {
+    crearComanda();
+    recogerClicksSobreBotonera();
 }
 
+function crearComanda() {
+
+    var totalPlatos = generarNumeroAleatorio(5);
+    comandaActual = new Comanda();
+
+    for (let i = 0; i < totalPlatos; i++) {
+        var plato = crearPlato();
+        añadirPlatoAComanda(comandaActual, plato);
+    }
+    //Limpiar la comanda anterior
+    document.getElementById("lista_comanda").innerHTML = "";
+    añadirComandaEnLaPagina(comandaActual);
+}
+
+//Devuelve un número aleatorio entre 1 y el parámetro recibido (max)
+//El +1 es para que el número máximo sea incluido en el rango y no devuelva 0 yaque Math.floor redondea por lo bajo
 function generarNumeroAleatorio(max) {
   return Math.floor(Math.random() * max) + 1;
 }
 
+
+//Creamos un plato con cantidad aleatoria (máximo 3) y comida aleatoria (alguno de los elementos del array comidas)
 function crearPlato() {
   var plato = new Plato();
   plato.setCantidad(generarNumeroAleatorio(3));
@@ -36,39 +43,143 @@ function crearPlato() {
   return plato;
 }
 
-function añadirPlatoAComanda(comanda, plato) {
-  var existe = false;
+//Añadimos un plato a la comandaActual si no existe ya un plato con el mismo nombre
+function añadirPlatoAComanda(comandaActual, plato) {
 
-  for (let i = 0; i < comanda.platos.length; i++) {
-    if (comanda.platos[i].getComida() == plato.getComida()) {
-      existe = true;
+    var existe = false;
+    //recorremos la comandaActual y comprobamos si ya existe un plato con el mismo nombre que el obj. plato  recibido como parámetro
+    for (let i = 0; i < comandaActual.platos.length; i++) {
+
+        if (comandaActual.platos[i].getComida() == plato.getComida()) {
+            existe = true;
+        }
     }
-  }
-
-  if (existe == false) {
-    comanda.platos.push(plato);
-    console.log(
-      "Plato añadido " + plato.getCantidad() + " " + plato.getComida(),
-    );
-  }
+    //añadimos el palto a la comandaActual(al final del array)
+    if (existe == false) {
+        comandaActual.platos.push(plato);
+        //console.log("Plato añadido " + plato.getCantidad() + " " + plato.getComida());
+    }
 }
 
-function añadirComandaEnLaPagina(comanda) {
-  var lista = document.getElementById("lista_comanda");
+//Añadimos la comandaActual en el html, creando un parrafo por cada plato con su cantidad y nombre
+function añadirComandaEnLaPagina(comandaActual) {
 
-  for (let i = 0; i < comanda.platos.length; i++) {
-    var parrafo = document.createElement("p");
-    parrafo.id = "plato" + (i + 1);
+    var lista = document.getElementById("lista_comanda");
 
-    parrafo.textContent =
-      comanda.platos[i].getCantidad() + " " + comanda.platos[i].getComida();
-    lista.appendChild(parrafo);
-  }
+    for (let i = 0; i < comandaActual.platos.length; i++) {
+
+        var parrafo = document.createElement("p");
+        parrafo.id = "plato" + (i + 1);
+        //añadimos el texto al parrafo con la cantidad y el nombre del plato
+        parrafo.textContent = comandaActual.platos[i].getCantidad() + " " + comandaActual.platos[i].getComida();
+        lista.appendChild(parrafo);
+
+    }
 }
 
-crearComanda();
+//************************** CAMBIOS TRAS CLICK ******************************************/
 
-// temporazador y puntos
+//En una misma función ponemos eventos de click sobre todas las imagenes de la botonera
+// ya que la imagen se corresponde con cada uno de los elementos del array comidas
+function recogerClicksSobreBotonera() {
+    for (let i = 0; i < comidas.length; i++) {
+        let comida = comidas[i]; //EXPLICAR ESTO 
+        document.getElementById(comida).addEventListener("click", function () {
+            // console.log(comida);
+            recogerClickComida(comida);
+        });
+
+    }
+}
+
+//Recibe el nombre de la comida  y busca si está en la comanda
+function recogerClickComida(comida) {
+    var posicionPlatoEncontrado = buscarPlatoEnComanda(comida);
+    if (posicionPlatoEncontrado == -1) {
+        return;//sonido/vibracion
+    }
+    restarCantidadPlato(posicionPlatoEncontrado);
+
+}
+
+//Buscamos en la comandaActual que uno de sus platos coincida con el parametro recibido(comida/plato elegida tras click)
+//Devolvemos la posicion donde encuentra dicho plato o -1 si no lo encuentra
+function buscarPlatoEnComanda(comida) {
+    for (let i = 0; i < comandaActual.platos.length; i++) {
+        if (comandaActual.platos[i].getComida() == comida) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+//Modificamos el plato encontrado (-1 a getCantidad) dentro de la comandaActual
+//Representamos el cambio en el html
+function restarCantidadPlato(posicionPlatoEncontrado) {
+    var platoEncontrado = comandaActual.platos[posicionPlatoEncontrado];
+    if (platoEncontrado.getCantidad() > 0) {
+        // console.log(platoEncontrado.getCantidad());
+        platoEncontrado.restarCantidad();
+        // console.log(platoEncontrado.getCantidad());
+        var parrafo = document.getElementById("plato" + (posicionPlatoEncontrado + 1));//buscamos el id de ese parrafo para modificarlo
+        parrafo.textContent = platoEncontrado.getCantidad() + " " + platoEncontrado.getComida();
+        if(platoEncontrado.getCantidad() == 0){
+            tacharPlato(parrafo);
+        }
+        comprobarComandaCompletada();
+    }
+}
+
+function comprobarComandaCompletada() {
+    var todosLosPlatosCompletados = true;
+
+    for (let i = 0; i < comandaActual.platos.length; i++) {
+        if (comandaActual.platos[i].getCantidad() > 0) {
+            todosLosPlatosCompletados = false;
+            break;
+        }
+    }
+
+    if (todosLosPlatosCompletados) {
+        contadorComanda++;
+
+        if (contadorComanda >= 6) {
+            var usuario = new Usuario("pepe", "prueba","Quefuncione","02/11/2000", "pepe@gmail.com","null");
+            var puntos = 100;
+            guardarRanking(usuario, puntos);//FALTA OBTENER PUNTUACIÓN
+            console.log(JSON.parse(localStorage.getItem("ranking")));
+
+            window.location.href = "inicio.html";
+            return;
+        }
+
+        crearComanda();
+    }
+}
+
+
+function tacharPlato(parrafo){
+    parrafo.style.textDecoration = "line-through";
+}
+
+
+function guardarRanking(usuario, puntos){
+    //creamos el obj
+    var rankigJugador = new RankingJugador(usuario, puntos, new Date());
+
+
+    //Buscamos si existe un ranking guardado; convertimos el texto guardado en a un array usando JSON.parse.
+    //Sino existe creamos array vacio
+    var ranking = JSON.parse(localStorage.getItem("ranking")) || []; 
+    //Añadimos el nuevo jugador al array
+    ranking.push(rankigJugador);
+    //Guardamos el array actualizado convirtiendo el array a texto al usar JSON.stringify
+    localStorage.setItem("ranking", JSON.stringify(ranking));
+
+
+}
+
+iniciarJuego();// temporazador y puntos
 let tiempoTotalSegundos = 120;
 let idTemporizador = null;
 

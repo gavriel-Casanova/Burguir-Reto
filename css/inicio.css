@@ -22,7 +22,8 @@ body {
 
 
 #ranking,
-#usuario {
+#usuario,
+#cerrar_sesion {
     background-color: black;
     color: white;
     border-radius: 0.5rem;
@@ -33,10 +34,11 @@ body {
 
 }
 
-.contenedor_usuario {
+#contenedor_usuario {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
 }
 
 #imagen_personaje {
@@ -58,6 +60,7 @@ body {
 
 #cerrar_sesion {
     display: none;
+    
 }
 
 
