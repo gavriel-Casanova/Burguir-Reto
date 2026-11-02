@@ -29,19 +29,18 @@ function crearComanda() {
 //Devuelve un número aleatorio entre 1 y el parámetro recibido (max)
 //El +1 es para que el número máximo sea incluido en el rango y no devuelva 0 yaque Math.floor redondea por lo bajo
 function generarNumeroAleatorio(max) {
-    return Math.floor(Math.random() * max) + 1;
+  return Math.floor(Math.random() * max) + 1;
 }
 
 
 //Creamos un plato con cantidad aleatoria (máximo 3) y comida aleatoria (alguno de los elementos del array comidas)
 function crearPlato() {
-    var plato = new Plato();
-    plato.setCantidad(generarNumeroAleatorio(3));
-    var posicionComida = generarNumeroAleatorio(comidas.length) - 1;
-    plato.setComida(comidas[posicionComida]);
-    //console.log(plato.getCantidad() + " "+ plato.getComida() );
-    return plato;
-
+  var plato = new Plato();
+  plato.setCantidad(generarNumeroAleatorio(3));
+  var posicionComida = generarNumeroAleatorio(comidas.length) - 1;
+  plato.setComida(comidas[posicionComida]);
+  //console.log(plato.getCantidad() + " "+ plato.getComida() );
+  return plato;
 }
 
 //Añadimos un plato a la comandaActual si no existe ya un plato con el mismo nombre
@@ -180,4 +179,50 @@ function guardarRanking(usuario, puntos){
 
 }
 
-iniciarJuego();
+iniciarJuego();// temporazador y puntos
+let tiempoTotalSegundos = 120;
+let idTemporizador = null;
+
+const spanMinutos = document.getElementById("minutos");
+const spanSegundos = document.getElementById("segundos");
+const tiempo = document.getElementById("tiempo");
+
+document.addEventListener('load', iniciarTemporizador());
+
+function iniciarTemporizador() {
+  if (idTemporizador !== null) return;
+
+  if (tiempoTotalSegundos <= 0) {
+    const mins = parseInt(inputMinutos.value) || 0;
+    const segs = parseInt(inputSegundos.value) || 0;
+    tiempoTotalSegundos = mins * 60 + segs;
+  }
+
+  if (tiempoTotalSegundos <= 0) return;
+
+
+  idTemporizador = setInterval(() => {
+    tiempoTotalSegundos--;
+    actualizarPantalla(tiempoTotalSegundos);
+
+    if (tiempoTotalSegundos <= 0) {
+      clearInterval(idTemporizador);
+      idTemporizador = null;
+
+      // Comportamiento cuando termina el tiempo
+      spanMinutos.textContent = "00";
+      spanSegundos.textContent = "00";
+
+      
+    }
+  }, 1000);
+}
+
+function actualizarPantalla(totalSegundos) {
+  const mins = Math.floor(totalSegundos / 60);
+  const segs = totalSegundos % 60;
+
+  // Formateamos y asignamos a cada span independiente
+  spanMinutos.textContent = String(mins).padStart(2, "0");
+  spanSegundos.textContent = String(segs).padStart(2, "0");
+}
