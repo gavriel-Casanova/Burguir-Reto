@@ -3,6 +3,11 @@ import { Plato } from "./clases/plato.js";
 import { Comanda } from "./clases/comanda.js";
 import { RankingJugador } from "./clases/rankingJugador.js";
 
+//LUCIA Y GAVRIEL: COMPROBAR COMO ESTÁN GUARDANDO LOS DATOS DEL USUARIO EN EL LOCALSTORAGE 
+//sessionStorage.setItem("usuarioActual", JSON.stringify(usuario));
+
+//Recuperamos el usuarioActual del sessionStorage y lo convertimos a obj. Usuario
+var usuario = JSON.parse(sessionStorage.getItem("usuarioActual"));
 const comidas = ["agua", "ensalada", "hamburguesa", "helado", "patatas", "tarta", "nachos", "refresco"];
 var comandaActual;
 var contadorComanda = 0;
@@ -97,7 +102,7 @@ function recogerClicksSobreBotonera() {
 function recogerClickComida(comida) {
     var posicionPlatoEncontrado = buscarPlatoEnComanda(comida);
     if (posicionPlatoEncontrado == -1) {
-        return;//sonido/vibracion
+        return;
     }
     restarCantidadPlato(posicionPlatoEncontrado);
 
@@ -145,11 +150,9 @@ function comprobarComandaCompletada() {
         contadorComanda++;
 
         if (contadorComanda >= 6) {
-            var usuario = new Usuario("pepe", "prueba","Quefuncione","02/11/2000", "pepe@gmail.com","null");
-            var puntos = 100;
-            guardarRanking(usuario, puntos);//FALTA OBTENER PUNTUACIÓN
-            console.log(JSON.parse(localStorage.getItem("ranking")));
-
+          
+            guardarRanking(usuario, puntos);
+            
             window.location.href = "inicio.html";
             return;
         }
@@ -158,26 +161,23 @@ function comprobarComandaCompletada() {
     }
 }
 
-
+//Tachamos el plato en la comanda cuando su cantidad llega a 0
 function tacharPlato(parrafo){
     parrafo.style.textDecoration = "line-through";
 }
 
+function calcularPuntuacion() {
 
+}
+
+//Guardamos en el localStorage un obj. RankingJugador con los datos del usuario y los puntos obtenidos
 function guardarRanking(usuario, puntos){
-    //creamos el obj
-    var rankigJugador = new RankingJugador(usuario, puntos, new Date());
-
-
-    //Buscamos si existe un ranking guardado; convertimos el texto guardado en a un array usando JSON.parse.
-    //Sino existe creamos array vacio
-    var ranking = JSON.parse(localStorage.getItem("ranking")) || []; 
-    //Añadimos el nuevo jugador al array
-    ranking.push(rankigJugador);
-    //Guardamos el array actualizado convirtiendo el array a texto al usar JSON.stringify
-    localStorage.setItem("ranking", JSON.stringify(ranking));
-
-
+    //creamos el obj. RankingJugador con los datos recibidos como parámetros y la fecha actual
+    var rankingJugador = new RankingJugador(usuario, puntos, new Date());
+    //Convertimos el obj. rankingJugador a JSON (texto porque localStorage solo almacena texto) 
+    // y lo guardamos en localStorage con la clave "rankingJugador"
+    localStorage.setItem("rankingJugador", JSON.stringify(rankingJugador));
+   
 }
 
 iniciarJuego();
