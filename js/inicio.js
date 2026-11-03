@@ -1,10 +1,10 @@
 import {Usuario} from "./clases/usuario.js";
 
 
-var usuario = new Usuario();/*PRUEBA*/
+var usuario = new Usuario("Prueba","Prueba","Prueba","02/02/2005", "prueba@gmail.com","/media/img/personajes/personaje4.png");/*PRUEBA*/
 
-usuario.setPersonaje("/media/img/personajes/personaje4.png");   
-usuario.setUsuario("Usuario de prueba");
+//usuario.setPersonaje("/media/img/personajes/personaje4.png");   
+//usuario.setUsuario("Prueba");
 inicializarPantallaInicio();
 
 /* Mostrar atributos del obj en su correspondiente elemento y  añadir enlaces*/
@@ -45,4 +45,16 @@ function mostrarBotonCerrarSesion() {
     cajaPersonaje.addEventListener("mouseleave", function() {
         botonCerrarSesion.style.display = "none";
     });
+
+    
 }
+
+document.getElementById("cerrar_sesion").addEventListener("click", function() {
+
+    //Eliminamos el usuario guardado en sessionStorage
+    sessionStorage.removeItem("usuarioActual");
+
+    //Volvemos a la página de login
+    window.location.href = "login.html";
+
+});
