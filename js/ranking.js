@@ -2,6 +2,7 @@ import { Usuario } from "./clases/Usuario.js";
 import { RankingJugador } from "./clases/rankingJugador.js";
 
 //objetos de prueba
+/*
 let test = new Usuario(
   "test",
   "test",
@@ -27,6 +28,7 @@ arrRanking.push(userRank2);
 
 localStorage.setItem("ranking", JSON.stringify(arrRanking));
 console.log(arrRanking);
+*/
 //fin objetos de prueba
 
 const tabla = document.getElementById("tablaPosicion");
@@ -72,5 +74,9 @@ function cargarTabla() {
     filaNueva.appendChild(celdaPuntos);
     filaNueva.appendChild(celdaFecha);
     tabla.appendChild(filaNueva);
+
+    if(index>10){
+      return;
+    }
   });
 }

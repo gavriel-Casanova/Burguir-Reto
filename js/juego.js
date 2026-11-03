@@ -16,6 +16,7 @@ const comidas = [
 var comandaActual;
 var contadorComanda = 0;
 
+
 function iniciarJuego() {
   crearComanda();
   recogerClicksSobreBotonera();
@@ -150,16 +151,11 @@ function comprobarComandaCompletada() {
     contadorComanda++;
 
     if (contadorComanda >= 6) {
-      var usuario = new Usuario(
-        "pepe",
-        "prueba",
-        "Quefuncione",
-        "02/11/2000",
-        "pepe@gmail.com",
-        "null",
-      );
-      var puntos = 100;
-      guardarRanking(usuario, puntos); //FALTA OBTENER PUNTUACIÓN
+      var usuario = sessionStorage.getItem("usuario");
+      usuario = JSON.parse(usuario);
+      var puntos = tiempoTotalSegundos;
+      alert(puntos);
+      guardarRanking(usuario, puntos); 
       console.log(JSON.parse(localStorage.getItem("ranking")));
 
       window.location.href = "inicio.html";
@@ -180,14 +176,16 @@ function guardarRanking(usuario, puntos) {
 
   //Buscamos si existe un ranking guardado; convertimos el texto guardado en a un array usando JSON.parse.
   //Sino existe creamos array vacio
-  var ranking = JSON.parse(localStorage.getItem("ranking")) || [];
+  var ranking = localStorage.getItem("ranking");
+  ranking = JSON.parse(ranking).map((item) =>
+    Object.assign(new RankingJugador(), item),
+  );
   //Añadimos el nuevo jugador al array
   ranking.push(rankigJugador);
   //Guardamos el array actualizado convirtiendo el array a texto al usar JSON.stringify
   localStorage.setItem("ranking", JSON.stringify(ranking));
 }
 
-iniciarJuego();
 // temporazador y puntos
 let tiempoTotalSegundos = 100;
 let idTemporizador = null;
@@ -222,7 +220,6 @@ function iniciarTemporizador() {
       // Comportamiento cuando termina el tiempo
       spanMinutos.textContent = "00";
       spanSegundos.textContent = "00";
-      
     }
   }, 1000);
 }
@@ -235,3 +232,5 @@ function actualizarPantalla(totalSegundos) {
   spanMinutos.textContent = String(mins).padStart(2, "0");
   spanSegundos.textContent = String(segs).padStart(2, "0");
 }
+
+iniciarJuego();
