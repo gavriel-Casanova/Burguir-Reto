@@ -26,12 +26,16 @@ document.addEventListener('DOMContentLoaded',function(){
     //Eleccion de personaje
     let personajeSeleccionado = "";
 
+    const inputPersonaje = document.getElementById('rutaPersonaje');
+
     for (let i = 1; i < 6; i++) {
         let img = document.getElementById(i);
         
         img.addEventListener('click', function(){
-            personajeSeleccionado = img.getAttribute("src");
-            console.log("Has seleccionado la imagen " + i + "Ruta: " + personajeSeleccionado);
+            personajeSeleccionado = this.getAttribute("src");
+            inputPersonaje.setAttribute('value',personajeSeleccionado );
+            console.log("Has seleccionado la imagen " + i + "Ruta: " + inputPersonaje.value);
+
         });
     }
 });

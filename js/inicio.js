@@ -3,6 +3,9 @@ import { Usuario } from "./clases/usuario.js";
 var usuario = sessionStorage.getItem("usuario");
 usuario = JSON.parse(usuario);
 
+var usuario = new Usuario("Prueba","Prueba","Prueba","02/02/2005", "prueba@gmail.com","/media/img/personajes/personaje4.png");/*PRUEBA*/
+
+
 //usuario.setPersonaje("/media/img/personajes/personaje4.png");
 //usuario.setUsuario("Prueba");
 inicializarPantallaInicio();
@@ -30,7 +33,13 @@ function inicializarPantallaInicio() {
     window.location.href = "perfil.html";
   });
 
-  document.getElementById("usuario").textContent = usuario.usuario;
+    document.getElementById("usuario").addEventListener("click", function() {
+        window.location.href = "perfil.html?modo=edicion";
+    });
+
+    document.getElementById("usuario").textContent = usuario.usuario;
+
+    document.getElementById("avatar").src = usuario.personaje;
 
   document.getElementById("avatar").src = usuario.personaje;
 }

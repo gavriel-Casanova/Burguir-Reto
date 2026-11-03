@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil</title>
-    <link href="/Burguir-Reto/css/general.css" rel="stylesheet">
-    <link href="/Burguir-Reto/css/perfil.css" rel="stylesheet">
-    <link href="/Burguir-Reto/css/personaje.css" rel="stylesheet">
+     <link rel="stylesheet "href="../css/general.css" >
+    <link href="../css/perfil.css" rel="stylesheet">
+    <link href="../css/personaje.css" rel="stylesheet">
 </head>
 <body>
     <div id="contenedor">
@@ -20,16 +20,16 @@
         <div id="formulario-perfil">
             <form id="formulario">
                 <div id="campos-form">
-                    <label for="nombre">Nombre:</label>
+                    <label for="nomb">Nombre:</label>
                     <input type="text" name="nombre" id="nomb">
 
-                    <label for="usuario">Usuario:</label>
+                    <label for="user">Usuario:</label>
                     <input type="text" name="usuario" id="user">
 
-                    <label for="contraseña">Contraseña:</label>
+                    <label for="passwd">Contraseña:</label>
                     <input type="password" name="contraseña" id="passwd">
 
-                    <label for="confirmar">Confirmar contraseña:</label>
+                    <label for="confpasswd">Confirmar contraseña:</label>
                     <input type="password" name="confcontraseña" id="confpasswd">
 
                     <label for="fecha">Fecha de nacimiento:</label>
@@ -38,12 +38,15 @@
                     <label for="correo">Correo:</label>
                     <input type="email" name="correo" id="correo">
                 </div>
-                
+
+                <input type="hidden" id="rutaPersonaje" value=""></input>
+
                 <div id="btnform">
                     <input type="submit" id="registrarse" value="Registrarse"></input>
-                    <button type="button" id="usuario">Nuevo usuario</button>
-                    <button type="button" id="actualizar">Actualizar</button>
+                    <button type="button" id="nuevoUsuario" class="oculto">Nuevo usuario</button>
+                    <button type="button" id="actualizar" class="oculto">Actualizar</button>
                 </div>
+
             </form>
         </div>
     </div>
@@ -53,12 +56,12 @@
             <h1>BURGUIR</h1>
 
             <div id="imagenes">
-                <img id="1" src="/Burguir-Reto/media/img/personajes/personaje1.png" alt="Personaje 1">
-                <img id="2" src="/Burguir-Reto/media/img/personajes/personaje2.png" alt="Personaje 2">
-                <img id="3" src="/Burguir-Reto/media/img/personajes/personaje3.png" alt="Personaje 3">
-                <img id="4" src="/Burguir-Reto/media/img/personajes/personaje4.png" alt="Personaje 4">
-                <img id="5" src="/Burguir-Reto/media/img/personajes/personaje5.png" alt="Personaje 5">
-                <img id="6" src="/Burguir-Reto/media/img/personajes/personaje6.png" alt="Personaje 6"><br>  
+                <img id="1" src="../media/img/personajes/personaje1.png" alt="Personaje 1">
+                <img id="2" src="../media/img/personajes/personaje2.png" alt="Personaje 2">
+                <img id="3" src="../media/img/personajes/personaje3.png" alt="Personaje 3">
+                <img id="4" src="../media/img/personajes/personaje4.png" alt="Personaje 4">
+                <img id="5" src="../media/img/personajes/personaje5.png" alt="Personaje 5">
+                <img id="6" src="../media/img/personajes/personaje6.png" alt="Personaje 6"><br>  
             </div>
             
             <div id="botones">
@@ -68,7 +71,7 @@
         </div>
     </div>
 
-    <script src="../js/clases/perfil.js"></script>
+    <script type="module" src="../js/clases/perfil.js"></script>
     <script src="../js/clases/personaje.js"></script>
 
 </body>
