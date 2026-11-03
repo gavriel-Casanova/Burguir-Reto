@@ -8,8 +8,8 @@ if (!ini) {
     "andrea",
     "andree",
     "test2",
-    "test2",
-    "test2",
+    "10-10-2000",
+    "andrea@gmail.com",
     "../media/img/personajes/personaje2.png",
   );
   let test = new Usuario(
@@ -25,8 +25,6 @@ if (!ini) {
   arrTest.push(test2);
   localStorage.setItem("usuarios", JSON.stringify(arrTest));
 }
-
-console.log(arrTest);
 // fin elementos de prueba
 
 formulario.addEventListener("submit", function (event) {
