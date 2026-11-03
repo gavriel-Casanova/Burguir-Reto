@@ -2,31 +2,36 @@ import { Usuario } from "./clases/Usuario.js";
 import { RankingJugador } from "./clases/rankingJugador.js";
 
 //objetos de prueba
-let test = new Usuario(
-  "test",
-  "test",
-  "test",
-  "test",
-  "",
-  "../media/img/personajes/personaje1.jpg",
-);
-let userRank = new RankingJugador(test, 20, "10-10-2026");
-let test2 = new Usuario(
-  "test2",
-  "test2",
-  "test2",
-  "test2",
-  "",
-  "../media/img/personajes/personaje2.jpg",
-);
-let userRank2 = new RankingJugador(test2, 30, "10-10-2026");
+var ini = localStorage.getItem("ranking");
 
-let arrRanking = new Array();
-arrRanking.push(userRank);
-arrRanking.push(userRank2);
+if (!ini) {
+  let test = new Usuario(
+    "andrea",
+    "andree",
+    "test2",
+    "test2",
+    "test2",
+    "../media/img/personajes/personaje2.png",
+  );
+  let userRank = new RankingJugador(test, 20, "10-10-2026");
+  let test2 = new Usuario(
+    "paco",
+    "paquito",
+    "test",
+    "10-10-2000",
+    "paco@gmail.com",
+    "../media/img/personajes/personaje1.png",
+  );
+  let userRank2 = new RankingJugador(test2, 30, "10-10-2026");
 
-localStorage.setItem("ranking", JSON.stringify(arrRanking));
-console.log(arrRanking);
+  let arrRanking = new Array();
+  arrRanking.push(userRank);
+  arrRanking.push(userRank2);
+
+  localStorage.setItem("ranking", JSON.stringify(arrRanking));
+  console.log(arrRanking);
+}
+
 //fin objetos de prueba
 
 const tabla = document.getElementById("tablaPosicion");
@@ -45,6 +50,7 @@ function cargarTabla() {
   ranking = JSON.parse(ranking).map((item) =>
     Object.assign(new RankingJugador(), item),
   );
+
   ranking.sort((a, b) => b.puntos - a.puntos);
   ranking.forEach((player, index) => {
     let user = player.getUsuario();
