@@ -34,9 +34,9 @@ function inicializarPantallaInicio() {
         window.location.href = "perfil.html?modo=edicion";
     });
 
-    document.getElementById("usuario").textContent = usuario.getUsuario();
+    document.getElementById("usuario").textContent = usuario.usuario;
 
-    document.getElementById("avatar").src = usuario.getPersonaje();
+    document.getElementById("avatar").src = usuario.personaje;
 
   document.getElementById("avatar").src = usuario.personaje;
 }

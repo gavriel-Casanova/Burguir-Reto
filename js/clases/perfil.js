@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
         // Recuperar el usuario guardado para rellenar los campos
         const usuarioGuardado = JSON.parse(localStorage.getItem('usuarioRegistrado'));
         if (usuarioGuardado) {
-            inputNombre.value = usuarioGuardado.nombre || "";
-            inputUsuario.value = usuarioGuardado.usuario || "";
-            inputContraseña.value = usuarioGuardado.contraseña || "";
-            inputConfContraseña.value = usuarioGuardado.contraseña || "";
-            inputCorreo.value = usuarioGuardado.correo || "";
-            inputFecha.value = usuarioGuardado.fecNacimiento || "";
-            inputHidden.value = usuarioGuardado.avatar || "";
+            inputNombre.value = usuarioGuardado.nombre;
+            inputUsuario.value = usuarioGuardado.usuario;
+            inputContraseña.value = usuarioGuardado.contraseña;
+            inputConfContraseña.value = usuarioGuardado.contraseña;
+            inputCorreo.value = usuarioGuardado.correo;
+            inputFecha.value = usuarioGuardado.fechaNacimiento;
+            inputHidden.value = usuarioGuardado.personaje;
 
             // Guardamos el nombre de usuario original para saber cuál buscar en la lista al actualizar
             usuarioOriginalParaEditar = usuarioGuardado.usuario;

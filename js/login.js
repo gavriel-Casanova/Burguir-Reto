@@ -26,7 +26,7 @@ if (!ini) {
   localStorage.setItem("usuarios", JSON.stringify(arrTest));
 }
 
-console.log(arrTest);
+
 // fin elementos de prueba
 
 formulario.addEventListener("submit", function (event) {
