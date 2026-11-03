@@ -3,11 +3,11 @@ import { Plato } from "./clases/plato.js";
 import { Comanda } from "./clases/comanda.js";
 import { RankingJugador } from "./clases/rankingJugador.js";
 
-//LUCIA Y GAVRIEL: COMPROBAR COMO ESTÁN GUARDANDO LOS DATOS DEL USUARIO EN EL LOCALSTORAGE 
+//LUCIA Y GAVRIEL: COMPROBAR COMO ESTÁN GUARDANDO LOS DATOS DEL USUARIO EN EL STORAGE 
 //sessionStorage.setItem("usuarioActual", JSON.stringify(usuario));
 
 //Recuperamos el usuarioActual del sessionStorage y lo convertimos a obj. Usuario
-var usuario = JSON.parse(sessionStorage.getItem("usuarioActual"));
+//var usuario = JSON.parse(sessionStorage.getItem("usuarioActual"));
 const comidas = ["agua", "ensalada", "hamburguesa", "helado", "patatas", "tarta", "nachos", "refresco"];
 var comandaActual;
 var contadorComanda = 0;
@@ -151,7 +151,7 @@ function comprobarComandaCompletada() {
 
         if (contadorComanda >= 6) {
           
-            guardarRanking(usuario, puntos);
+            //guardarRanking(usuario, puntos); //PENDIENTE
             
             window.location.href = "inicio.html";
             return;

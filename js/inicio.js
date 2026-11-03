@@ -3,8 +3,7 @@ import {Usuario} from "./clases/usuario.js";
 
 var usuario = new Usuario("Prueba","Prueba","Prueba","02/02/2005", "prueba@gmail.com","/media/img/personajes/personaje4.png");/*PRUEBA*/
 
-//usuario.setPersonaje("/media/img/personajes/personaje4.png");   
-//usuario.setUsuario("Prueba");
+
 inicializarPantallaInicio();
 
 /* Mostrar atributos del obj en su correspondiente elemento y  añadir enlaces*/
