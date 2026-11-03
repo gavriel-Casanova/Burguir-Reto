@@ -2,13 +2,14 @@ import { Usuario } from "./clases/Usuario.js";
 import { RankingJugador } from "./clases/rankingJugador.js";
 
 //objetos de prueba
+/*
 let test = new Usuario(
   "test",
   "test",
   "test",
   "test",
   "",
-  "../media/img/personajes/personaje1.jpg",
+  "../media/img/personajes/personaje1.png",
 );
 let userRank = new RankingJugador(test, 20, "10-10-2026");
 let test2 = new Usuario(
@@ -17,7 +18,7 @@ let test2 = new Usuario(
   "test2",
   "test2",
   "",
-  "../media/img/personajes/personaje2.jpg",
+  "../media/img/personajes/personaje2.png",
 );
 let userRank2 = new RankingJugador(test2, 30, "10-10-2026");
 
@@ -27,6 +28,7 @@ arrRanking.push(userRank2);
 
 localStorage.setItem("ranking", JSON.stringify(arrRanking));
 console.log(arrRanking);
+*/
 //fin objetos de prueba
 
 const tabla = document.getElementById("tablaPosicion");
@@ -72,5 +74,9 @@ function cargarTabla() {
     filaNueva.appendChild(celdaPuntos);
     filaNueva.appendChild(celdaFecha);
     tabla.appendChild(filaNueva);
+
+    if(index>10){
+      return;
+    }
   });
 }
