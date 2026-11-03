@@ -218,7 +218,7 @@ function iniciarTemporizador() {
     if (tiempoTotalSegundos <= 0) {
       clearInterval(idTemporizador);
       idTemporizador = null;
-      alert("Tiempo terminado");
+      alert("-- Tiempo terminado -- \n Intente nuevamente");
       window.location.href = "inicio.html";
 
       // Comportamiento cuando termina el tiempo
