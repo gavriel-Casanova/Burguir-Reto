@@ -24,7 +24,7 @@ function inicializarPantallaInicio(){
     });
 
     document.getElementById("usuario").addEventListener("click", function() {
-        window.location.href = "perfil.html";
+        window.location.href = "perfil.html?modo=edicion";
     });
 
     document.getElementById("usuario").textContent = usuario.getUsuario();
