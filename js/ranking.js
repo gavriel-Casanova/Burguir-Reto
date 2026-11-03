@@ -8,7 +8,7 @@ let test = new Usuario(
   "test",
   "test",
   "",
-  "../media/img/personajes/personaje1.jpg",
+  "../media/img/personajes/personaje1.png",
 );
 let userRank = new RankingJugador(test, 20, "10-10-2026");
 let test2 = new Usuario(
@@ -17,7 +17,7 @@ let test2 = new Usuario(
   "test2",
   "test2",
   "",
-  "../media/img/personajes/personaje2.jpg",
+  "../media/img/personajes/personaje2.png",
 );
 let userRank2 = new RankingJugador(test2, 30, "10-10-2026");
 
