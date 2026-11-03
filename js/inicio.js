@@ -33,7 +33,13 @@ function inicializarPantallaInicio() {
     window.location.href = "perfil.html";
   });
 
-  document.getElementById("usuario").textContent = usuario.usuario;
+    document.getElementById("usuario").addEventListener("click", function() {
+        window.location.href = "perfil.html?modo=edicion";
+    });
+
+    document.getElementById("usuario").textContent = usuario.usuario;
+
+    document.getElementById("avatar").src = usuario.personaje;
 
   document.getElementById("avatar").src = usuario.personaje;
 }
