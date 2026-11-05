@@ -1,4 +1,4 @@
-import { Usuario } from "./clases/Usuario.js";
+import { Usuario } from "../clases/Usuario.js";
 import { RankingJugador } from "./clases/rankingJugador.js";
 
 //objetos de prueba

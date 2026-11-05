@@ -19,9 +19,10 @@ function inicializarPantallaInicio() {
       "ranking.html"; /*la ventana actual cambio en enlace por ...*/
   });
 
-  document
-    .getElementById("cerrar_sesion")
-    .addEventListener("click", function () {
+  document.getElementById("cerrar_sesion").addEventListener("click", function () {
+     //Eliminamos el usuario guardado en sessionStorage
+    sessionStorage.removeItem("usuarioActual");
+     //Volvemos a la página de login
       window.location.href = "login.html";
     });
 
@@ -41,7 +42,6 @@ function inicializarPantallaInicio() {
 
     document.getElementById("avatar").src = usuario.personaje;
 
-  document.getElementById("avatar").src = usuario.personaje;
 }
 
 function mostrarBotonCerrarSesion() {
@@ -57,10 +57,3 @@ function mostrarBotonCerrarSesion() {
   });
 }
 
-document.getElementById("cerrar_sesion").addEventListener("click", function () {
-  //Eliminamos el usuario guardado en sessionStorage
-  sessionStorage.removeItem("usuarioActual");
-
-  //Volvemos a la página de login
-  window.location.href = "login.html";
-});
