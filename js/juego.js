@@ -153,7 +153,7 @@ function comprobarComandaCompletada() {
       var usuario = sessionStorage.getItem("usuario");
       usuario = JSON.parse(usuario);
       var puntos = tiempoTotalSegundos;
-      alert(puntos);
+      alert("Haz optenido "+puntos+" puntos");
       guardarRanking(usuario, puntos);
       console.log(JSON.parse(localStorage.getItem("ranking")));
 
