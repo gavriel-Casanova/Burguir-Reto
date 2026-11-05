@@ -8,8 +8,8 @@ if (!ini) {
     "andrea",
     "andree",
     "test2",
-    "test2",
-    "test2",
+    "10-10-2000",
+    "andrea@gmail.com",
     "../media/img/personajes/personaje2.png",
   );
   let test = new Usuario(

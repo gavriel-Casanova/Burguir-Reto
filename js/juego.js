@@ -16,7 +16,6 @@ const comidas = [
 var comandaActual;
 var contadorComanda = 0;
 
-
 function iniciarJuego() {
   crearComanda();
   recogerClicksSobreBotonera();
@@ -154,8 +153,8 @@ function comprobarComandaCompletada() {
       var usuario = sessionStorage.getItem("usuario");
       usuario = JSON.parse(usuario);
       var puntos = tiempoTotalSegundos;
-      alert(puntos);
-      guardarRanking(usuario, puntos); 
+      alert("Haz optenido "+puntos+" puntos");
+      guardarRanking(usuario, puntos);
       console.log(JSON.parse(localStorage.getItem("ranking")));
 
       window.location.href = "inicio.html";
@@ -172,7 +171,12 @@ function tacharPlato(parrafo) {
 
 function guardarRanking(usuario, puntos) {
   //creamos el obj
-  var rankigJugador = new RankingJugador(usuario, puntos, new Date());
+  const fecha = new Date();
+
+  const dia = String(fecha.getDate()).padStart(2, "0");
+  const mes = String(fecha.getMonth() + 1).padStart(2, "0"); // Los meses van de 0 a 11
+  const anio = fecha.getFullYear();
+  var rankigJugador = new RankingJugador(usuario, puntos, `${dia}-${mes}-${anio}`);
 
   //Buscamos si existe un ranking guardado; convertimos el texto guardado en a un array usando JSON.parse.
   //Sino existe creamos array vacio
@@ -214,7 +218,7 @@ function iniciarTemporizador() {
     if (tiempoTotalSegundos <= 0) {
       clearInterval(idTemporizador);
       idTemporizador = null;
-      alert("Tiempo terminado");
+      alert("-- Tiempo terminado -- \n Intente nuevamente");
       window.location.href = "inicio.html";
 
       // Comportamiento cuando termina el tiempo
